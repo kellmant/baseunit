@@ -1,7 +1,7 @@
 FROM alpine:latest
 MAINTAINER kellman
 WORKDIR /root
-COPY dict dict 
+COPY dict /usr/local/share/dict 
 COPY bin /usr/local/bin
 RUN \
 	chmod -R a+x /usr/local/bin && \
