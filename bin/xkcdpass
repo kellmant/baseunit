@@ -1,0 +1,6 @@
+#!/bin/bash
+#
+
+xpass=$(shuf -n3 /root/dict/words | tr '\n' '_')
+xpass=${xpass%?}
+echo -n $xpass

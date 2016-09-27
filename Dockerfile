@@ -1,6 +1,10 @@
 FROM alpine:latest
 MAINTAINER kellman
+WORKDIR /root
+COPY dict dict 
+COPY bin /usr/local/bin
 RUN \
+	chmod -R a+x /usr/local/bin && \
 	apk -Uuv add --no-cache tzdata ca-certificates bash && \
 	addgroup -g 500 core && \
 	addgroup -g 600 units && \
