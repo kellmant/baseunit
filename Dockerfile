@@ -11,6 +11,8 @@ RUN \
 	addgroup -g 700 boss && \
 	adduser -D ctrl -u 500 -G core -s /bin/bash -h /ctrl && \
 	echo "ctrl ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers && \
+	echo "Ghost Server" > /etc/motd && \
+	echo " " >> /etc/motd && \
 	rm -rf /root/.cache && \
 	rm -rf /tmp/* && \
 	rm -rf /var/cache/apk/*
