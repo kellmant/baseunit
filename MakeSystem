@@ -1,0 +1,7 @@
+#!/bin/bash
+mkdir -p $PWD/certs
+cp /efs/ca/*.cert.pem $PWD/certs/
+docker build -t registry.local:5000/base .
+docker push registry.local:5000/base
+rm -rf $PWD/certs
+
