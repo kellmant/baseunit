@@ -1,6 +1,7 @@
 #!/bin/bash
 mkdir -p $PWD/certs
 cp /efs/ca/*.cert.pem $PWD/certs/
+rm -rf $PWD/certs/ca-chain.cert.pem
 docker build -t registry.local:5000/base .
 docker push registry.local:5000/base
 docker run --rm -v /efs/etc:/mnt registry.local:5000/base rsync -av /etc/ /mnt/
