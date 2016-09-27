@@ -10,7 +10,7 @@ RUN \
 	addgroup -g 500 core && \
 	addgroup -g 600 units && \
 	addgroup -g 700 boss && \
-	adduser -D ctrl -u 500 -g 500 -G 253 -s /bin/bash -h /ctrl && \
+	adduser -D ctrl -u 500 -g 500 -G fleet -s /bin/bash -h /ctrl && \
 	echo "ctrl ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers && \
 	echo "Gateway In The Sky Project" > /etc/motd && \
 	echo "Ironman Release" >> /etc/motd && \
