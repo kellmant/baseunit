@@ -18,4 +18,3 @@ COPY certs/ /usr/local/share/ca-certificates/
 RUN update-ca-certificates
 USER root
 ENV PATH=/ctrl/bin:/efs/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
-CMD ["/bin/bash", "-c"]

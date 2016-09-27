@@ -1,5 +1,13 @@
 #!/bin/bash
+
+while IFS= read -r char
+do
+echo "ENV $char" >> $PWD/Dockerfile
+done < "/efs/services/enviroment"
+echo "CMD ["/bin/bash". "-c"]" >> $PWD/Dockerfile
+
 mkdir -p $PWD/certs
+
 cp /efs/ca/*.cert.pem $PWD/certs/
 rm -rf $PWD/certs/ca-chain.cert.pem
 docker build -t registry.local:5000/base .
