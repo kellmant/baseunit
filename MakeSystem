@@ -4,7 +4,7 @@ while IFS= read -r char
 do
 echo "ENV $char" >> $PWD/Dockerfile
 done < "/efs/services/environment"
-echo "CMD ["/bin/bash", "-c"]" >> $PWD/Dockerfile
+echo "CMD [\"/bin/bash\", \"-c\"]" >> $PWD/Dockerfile
 
 mkdir -p $PWD/certs
 

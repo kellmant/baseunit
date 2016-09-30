@@ -1,0 +1,22 @@
+#!/bin/bash
+#
+
+tmpf="/tmp/${SESSIONKEY}.XXXXX"
+MASTERPASSPHRASE=$(xkcdpass)
+
+aws sns create-topic --name $(THEMASTER)
+aws sns create-topic --name $(THEMASTER).email
+arnsms="${arn}:${THEMASTER}"
+arnmail="${arn}:${THEMASTER}.email"
+aws sns subscribe --topic-arn $arnmail --protocol email --notification-endpoint ${BOSSMAIL}
+aws sns subscribe --topic-arn $arnsms --protocol sms --notification-endpoint ${BOSSSMS}
+# 
+adduser -D ${THEMASTER} -u 1101 -G boss -s /bin/bash -h 
+echo '${THEMASTER}:${MASTERPASSPHRASE}' | chpasswd 
+echo 'hello ${THEMASTER} your passphrase to login is:' > $tmpf
+echo '${MASTERPASSPHRASE}' >> $tmpf
+echo ' The location will be emailed to ${BOSSMAIL} when ready.' >> $tmpf
+
+aws sns publish --topic-arn $arnsms --subject "IMPORTANT" --message file://$tmpf
+
+docker run --rm --name myca -h ca.gatewayinthesky.net --volumes-from ca -e PASSPHRASE=${MASTERPASSPHRASE} registry.local:5000/keymaster masterkey
