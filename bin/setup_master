@@ -19,4 +19,4 @@ echo ' The location will be emailed to ${BOSSMAIL} when ready.' >> $tmpf
 
 aws sns publish --topic-arn $arnsms --subject "IMPORTANT" --message file://$tmpf
 
-docker run --rm --name myca -h ca.gatewayinthesky.net --volumes-from ca -e PASSPHRASE=${MASTERPASSPHRASE} registry.local:5000/keymaster masterkey
+#docker run --rm --name myca -h ca.gatewayinthesky.net --volumes-from ca -e PASSPHRASE=${MASTERPASSPHRASE} registry.local:5000/keymaster masterkey
