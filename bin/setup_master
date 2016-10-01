@@ -11,8 +11,8 @@ arnmail="${arn}:${THEMASTER}.email"
 aws sns subscribe --topic-arn $arnmail --protocol email --notification-endpoint ${BOSSMAIL}
 aws sns subscribe --topic-arn $arnsms --protocol sms --notification-endpoint ${BOSSSMS}
 # 
-adduser -D ${THEMASTER} -u 1101 -G boss -s /bin/bash -h 
-echo '${THEMASTER}:${MASTERPASSPHRASE}' | chpasswd 
+sudo adduser -D ${THEMASTER} -u 1101 -G boss -s /bin/bash -h 
+echo '${THEMASTER}:${MASTERPASSPHRASE}' | sudo chpasswd 
 echo 'hello ${THEMASTER} your passphrase to login is:' > $tmpf
 echo '${MASTERPASSPHRASE}' >> $tmpf
 echo ' The location will be emailed to ${BOSSMAIL} when ready.' >> $tmpf
