@@ -26,6 +26,7 @@ RUN \
 	adduser -r -u 901 -g web hexo && \
 	adduser -r -u 902 -g web blog && \
 	adduser -r -u 903 -g web wordpress && \
+	adduser -r -u 904 -g web node && \
 	echo "Gateway In The Sky Project" > /etc/motd && \
 	echo "Ironman Lives Again Release" >> /etc/motd && \
 	echo " " >> /etc/motd && \
