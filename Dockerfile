@@ -14,19 +14,19 @@ RUN \
 	addgroup -g 900 web && \
 	adduser -D ctrl -u 500 -g 500 -G fleet -s /bin/bash -h /ctrl && \
 	echo "ctrl ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers && \
-	adduser -r -u 601 -g units git && \
-	adduser -r -u 602 -g units irc && \
-	adduser -r -u 603 -g units db && \
-	adduser -r -u 801 -g media plex && \
-	adduser -r -u 802 -g media shows && \
-	adduser -r -u 803 -g media movies && \
-	adduser -r -u 804 -g media music && \
-	adduser -r -u 805 -g media sab && \
-	adduser -r -u 806 -g media torrent && \
-	adduser -r -u 901 -g web hexo && \
-	adduser -r -u 902 -g web blog && \
-	adduser -r -u 903 -g web wordpress && \
-	adduser -r -u 904 -g web node && \
+	adduser -S -u 601 -g units -H git && \
+	adduser -S -u 602 -g units -H irc && \
+	adduser -S -u 603 -g units -H db && \
+	adduser -S -u 801 -g media -H plex && \
+	adduser -S -u 802 -g media -H shows && \
+	adduser -S -u 803 -g media -H movies && \
+	adduser -S -u 804 -g media -H music && \
+	adduser -S -u 805 -g media -H sab && \
+	adduser -S -u 806 -g media -H torrent && \
+	adduser -S -u 901 -g web -H hexo && \
+	adduser -S -u 902 -g web -H blog && \
+	adduser -S -u 903 -g web -H wordpress && \
+	adduser -S -u 904 -g web -H node && \
 	echo "Gateway In The Sky Project" > /etc/motd && \
 	echo "Ironman Lives Again Release" >> /etc/motd && \
 	echo " " >> /etc/motd && \
