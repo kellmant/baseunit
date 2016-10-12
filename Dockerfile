@@ -10,6 +10,7 @@ RUN \
 	addgroup -g 500 core && \
 	addgroup -g 600 units && \
 	addgroup -g 700 boss && \
+	addgroup -g 797 plex && \
 	addgroup -g 800 media && \
 	addgroup -g 900 web && \
 	adduser -D ctrl -u 500 -g 500 -G fleet -s /bin/bash -h /ctrl && \
@@ -17,7 +18,7 @@ RUN \
 	adduser -S -u 601 -g units -H git && \
 	adduser -S -u 602 -g units -H irc && \
 	adduser -S -u 603 -g units -H db && \
-	adduser -S -u 801 -g media -H plex && \
+	adduser -S -u 797 -g plex -H plex && \
 	adduser -S -u 802 -g media -H shows && \
 	adduser -S -u 803 -g media -H movies && \
 	adduser -S -u 804 -g media -H music && \
