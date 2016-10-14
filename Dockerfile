@@ -13,8 +13,14 @@ RUN \
 	addgroup -g 797 plex && \
 	addgroup -g 800 media && \
 	addgroup -g 900 web && \
-	adduser -D ctrl -u 500 -g 500 -G fleet -s /bin/bash -h /ctrl && \
+	adduser -D ctrl -u 500 -g controller -G core -s /bin/bash -h /ctrl && \
 	echo "ctrl ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers && \
+	addgroup ctrl fleet && \
+	addgroup ctrl units && \
+	addgroup ctrl boss && \
+	addgroup ctrl plex && \
+	addgroup ctrl media && \
+	addgroup ctrl web && \
 	adduser -S -u 601 -G units -H git && \
 	adduser -S -u 602 -G units -H irc && \
 	adduser -S -u 603 -G units -H db && \
